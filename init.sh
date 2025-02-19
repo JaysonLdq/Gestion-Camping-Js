@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env zsh
 echo ""
 echo -e "\e[97;44m                              \e[0m"
 echo -e "\e[97;44m   Initialisation du projet   \e[0m"
@@ -26,8 +26,8 @@ while read project_name; do
 done
 
 # Écriture du nom du projet dans docker-compose.yml et package JSON
-sed "s/<<PROJECT_NAME>>/$project_name/" -i ./docker-compose.yml
-sed "s/<<PROJECT_NAME>>/$project_name/" -i ./app/package.json
+sed -i '' "s/<<PROJECT_NAME>>/$project_name/" ./docker-compose.yml
+sed -i '' "s/<<PROJECT_NAME>>/$project_name/" ./app/package.json
 
 # Message de succés
 echo ""
